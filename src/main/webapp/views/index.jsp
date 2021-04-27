@@ -9,8 +9,11 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.css">
 </head>
-<body>
 
+<body>
+<h1>Welcome to Home page</h1>
 </body>
 </html>

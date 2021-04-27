@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AuthenticateController {
 
-    @RequestMapping("/tada")
-    public String login(){
+    @RequestMapping("/")
+    public String home(){
         return "index";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
 }

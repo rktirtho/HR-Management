@@ -1,1 +1,6 @@
-# HR-Management
+# Human Resources Management System
+
+## Objective
+
+
+## Feature

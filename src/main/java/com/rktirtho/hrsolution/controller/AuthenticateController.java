@@ -6,17 +6,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AuthenticateController {
 
-    @RequestMapping({"/", "/login"})
+    @RequestMapping({"/"})
     public String home(){
+        return "redirect:login";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
         return "login";
     }
 
-    @RequestMapping("/register")
-    public String login(){
+    @RequestMapping("/sign-up")
+    public String register(){
         return "register";
     }
 
-    @RequestMapping("/recover")
+    @RequestMapping("/forgot-password")
     public String recover(){
         return "recover";
     }

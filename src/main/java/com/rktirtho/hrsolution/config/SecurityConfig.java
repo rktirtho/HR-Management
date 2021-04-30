@@ -36,7 +36,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/",
 			"/login",
 			"/sign-up",
-			"/forgot-password",
+			"/dashboard",
+			"/reset-password",
+			"/forgot-password"
 	};
 
 	@Override
@@ -46,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		/*	antMatchers("/**").*/
 			antMatchers(PUBLIC_MATCHERS).
 			permitAll().anyRequest().authenticated();
+
 
 		http
 			.csrf().disable().cors().disable()

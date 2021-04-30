@@ -25,4 +25,14 @@ public class AuthenticateController {
     public String recover(){
         return "recover";
     }
+
+    @RequestMapping("/reset-password")
+    public String resetPassword(){
+        return "reset-password";
+    }
+
+    @RequestMapping("/dashboard")
+    public String deshboard(){
+        return "dashboard";
+    }
 }

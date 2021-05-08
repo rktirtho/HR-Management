@@ -1,6 +1,8 @@
 package com.rktirtho.hrsolution.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -11,15 +13,29 @@ public class AuthenticateController {
         return "redirect:login";
     }
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login(){
+        System.out.println("Login page");
         return "login";
     }
 
-    @RequestMapping("/sign-up")
+    @PostMapping("/login")
+    public String doLogin(){
+        System.out.println("Post Login call");
+        return "login";
+    }
+
+    @GetMapping("/sign-up")
     public String register(){
         return "register";
     }
+
+    @PostMapping("/sign-up")
+    public String doRegister(){
+        System.out.println("Post Register Call");
+        return "register";
+    }
+
 
     @RequestMapping("/forgot-password")
     public String recover(){

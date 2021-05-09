@@ -1,7 +1,10 @@
 package com.rktirtho.hrsolution.controller;
 
+import com.rktirtho.hrsolution.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +23,7 @@ public class AuthenticateController {
     }
 
     @PostMapping("/login")
-    public String doLogin(){
+    public String doLogin(@ModelAttribute("user")User user, BindingResult result){
         System.out.println("Post Login call");
         return "login";
     }

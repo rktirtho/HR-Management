@@ -4,7 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <a href="#">pro sidebar</a>
+                <a href="#">HR Management Pro</a>
                 <div id="close-sidebar">
                     <i class="fas fa-times"></i>
                 </div>
@@ -161,7 +161,7 @@
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="fa fa-globe"></i>
-                            <span>Maps</span>
+                            <span>Account</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -169,6 +169,7 @@
                                     <a href="#">Google maps</a>
                                 </li>
                                 <li>
+
                                     <a href="#">Open street map</a>
                                 </li>
                             </ul>
@@ -191,9 +192,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" th:href="@{/logout}">
                             <i class="fa fa-folder"></i>
-                            <span>Examples</span>
+                            <span>Log Out</span>
                         </a>
                     </li>
                 </ul>

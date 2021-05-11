@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.sql.DataSource;
+
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +22,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private Environment env;
+	@Autowired
+	private DataSource dataSource;
 
 	@Autowired
 	private UserSecurityService userSecurityService;
@@ -40,6 +44,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/reset-password",
 			"/forgot-password"
 	};
+
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		super.configure(auth);
+		auth
+				.jdbcAuthentication()
+				.dataSource(dataSource)
+		.passwordEncoder(new BCryptPasswordEncoder());
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -73,7 +87,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
+		auth
+				.userDetailsService(userSecurityService)
+				.passwordEncoder(passwordEncoder());
 	}
 	
 }
